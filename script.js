@@ -1,65 +1,9 @@
-// document.addEventListener('DOMContentLoaded', () => {
-//     const form = document.getElementById('registration-form');
-//     const feedbackDiv = document.getElementById('form-feedback');
-
-//     form.addEventListener('submit', function(event) {
-//         event.preventDefault(); // Stop the form from submitting
-
-        
-//         // Get and trim user inputs
-//         const username = document.getElementById('username').value.trim();
-//         const email = document.getElementById('email').value.trim();
-//         const password = document.getElementById('password').value.trim();
-
-//         // Initialize validation variables
-//         let isValid = true;
-//         const messages = [];
-
-//         // Username validation
-//         if (username.length < 3) {
-//             isValid = false;
-//             messages.push('Username must be at least 3 characters long.');
-//         }
-
-//         // Email validation
-//         if (!email.includes('@') || !email.includes('.')) {
-//             isValid = false;
-//             messages.push('Email must contain "@" and "." characters.');
-//         }
-
-//         // Password validation
-//         if (password.length < 8) {
-//             isValid = false;
-//             messages.push('Password must be at least 8 characters long.');
-//         }
-
-//         // Show feedback
-//         feedbackDiv.style.display = 'block';
-
-//         if (isValid) {
-//             feedbackDiv.textContent = 'Registration successful!';
-//             feedbackDiv.style.color = '#28a745'; // Green
-//             feedbackDiv.style.backgroundColor = '#d4edda'; // Optional green background
-//         } else {
-//             feedbackDiv.innerHTML = messages.join('<br>');
-//             feedbackDiv.style.color = '#d8000c'; // Red
-//             feedbackDiv.style.backgroundColor = '#ffbaba'; // Red background
-//         }
-//     });
-// });
-
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('registration-form');
     const feedbackDiv = document.getElementById('form-feedback');
 
-    if (!form || !feedbackDiv) {
-        console.error('Form or feedback div not found!');
-        return;
-    }
-
     form.addEventListener('submit', function(event) {
         event.preventDefault();
-        console.log('Form submit event triggered');
 
         const username = document.getElementById('username').value.trim();
         const email = document.getElementById('email').value.trim();
@@ -68,16 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {
         let isValid = true;
         const messages = [];
 
+        // Username validation
         if (username.length < 3) {
             isValid = false;
             messages.push('Username must be at least 3 characters long.');
         }
 
+        // Email validation
         if (!email.includes('@') || !email.includes('.')) {
             isValid = false;
             messages.push('Email must contain "@" and "." characters.');
         }
 
+        // Password validation
         if (password.length < 8) {
             isValid = false;
             messages.push('Password must be at least 8 characters long.');
@@ -87,15 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isValid) {
             feedbackDiv.textContent = 'Registration successful!';
-            feedbackDiv.style.color = '#28a745';
-            feedbackDiv.style.backgroundColor = '#d4edda';
+            feedbackDiv.style.color = '#28a745'; // ✅ Exact color
         } else {
             feedbackDiv.innerHTML = messages.join('<br>');
-            feedbackDiv.style.color = '#d8000c';
-            feedbackDiv.style.backgroundColor = '#ffbaba';
+            feedbackDiv.style.color = '#dc3545'; // ✅ Exact error color
         }
     });
 });
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
